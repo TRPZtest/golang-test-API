@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+ #api
+  task_api:
+    container_name: task_api
+    image: task_api_bin
+    build:
+      context: ./testAPI
+      dockerfile: docker/Dockerfile
+      target: prod
+    ports:
+      - "8080:8080"
+    depends_on:
+      migrations:
+        condition: service_completed_successfully
+ #migrations
+  migrations:
+    container_name: migrations
+    image: migrations_bin
+    build:
+      context: ./migrations
+      dockerfile: Dockerfile
+      target: prod
+    depends_on:
+        - db
+    #ms sql
+  db:
+      image: "mcr.microsoft.com/mssql/server:2022-latest"
+      ports:
+        - "1433:1433"
+      hostname: db-test
+
+      environment:
+          SA_PASSWORD: "S3cur3P@ssW0rd!"
+          ACCEPT_EULA: "Y"
