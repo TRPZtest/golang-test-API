@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "a84fe95f-17e0-4731-8798-72cb53a70ac2",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request_id\": 1,\n    \"url_package\": [1, 2, 3],\n    \"ip\": \"192.158.1.38\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080?UrlPackage[]=1&UrlPackage[]=2&UrlPackage[]=3&RequestID=1&IP=192.158.1.38",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"query": [
+						{
+							"key": "UrlPackage[]",
+							"value": "1"
+						},
+						{
+							"key": "UrlPackage[]",
+							"value": "2"
+						},
+						{
+							"key": "UrlPackage[]",
+							"value": "3"
+						},
+						{
+							"key": "RequestID",
+							"value": "1"
+						},
+						{
+							"key": "IP",
+							"value": "192.158.1.38"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
